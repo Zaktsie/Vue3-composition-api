@@ -9,6 +9,21 @@
   </div>
 </div>
 </template>
+
+<script setup>
+
+import { ref } from 'vue';
+
+
+const counter = ref(0)
+const increment = () => counter.value++
+const decrement = () => counter.value--
+
+</script>
+
+
+<!-- 
+Composition API example
 <script>
 import {ref } from 'vue';
 export default { 
@@ -28,8 +43,9 @@ export default {
   }
 }
 
-</script>
+</script> -->
 
+<!-- options API example  -->
 
 <!-- <script>
 export default {
