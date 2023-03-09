@@ -1,0 +1,66 @@
+
+
+<template>
+<div class="home">
+  <div>
+    <button @click="decrement"  class="btn">-</button>
+    <span class="counter">{{ counter}}</span>
+    <button @click="increment" class="btn">+</button>
+  </div>
+</div>
+</template>
+<script>
+import {ref } from 'vue';
+export default { 
+  setup() {
+    const counter = ref(20)
+ 
+ 
+ return {
+  counter,
+  increment() {
+    counter.value++
+  },
+  decrement() {
+    counter.value--
+  },
+ }
+  }
+}
+
+</script>
+
+
+<!-- <script>
+export default {
+ data ()  {
+  return {
+  counter : 0
+ } 
+},
+methods: {
+  increment() {
+    this.counter++
+  },
+  decrement() {
+    this.counter--
+  },
+  
+},
+}
+
+  </script> -->
+
+
+<style>
+.home {
+  text-align: center;
+  padding: 20px;
+}
+.btn, .counter {
+  font-size: 2rem;
+  padding: 0 1rem;
+}
+
+
+</style>
