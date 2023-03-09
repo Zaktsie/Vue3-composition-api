@@ -3,6 +3,7 @@
 <template>
 <div class="home">
   <div>
+    <h2>{{ appTitle }}</h2>
     <h3>{{ counterData.Title }} :</h3>
     <button @click="decrement"  class="btn">-</button>
     <span class="counter">{{ counterData.counter}}</span>
@@ -15,6 +16,7 @@
 
 import { reactive } from 'vue';
 
+const appTitle = 'Vue 3 Composition API counter app'
 
 /* const counter = ref(0)
 const counterTitle = ref('My Counter')
