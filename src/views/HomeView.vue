@@ -3,9 +3,9 @@
 <template>
 <div class="home">
   <div>
-    <h3>{{ counterTitle }} :</h3>
+    <h3>{{ counterData.Title }} :</h3>
     <button @click="decrement"  class="btn">-</button>
-    <span class="counter">{{ counter}}</span>
+    <span class="counter">{{ counterData.counter}}</span>
     <button @click="increment" class="btn">+</button>
   </div>
 </div>
@@ -13,13 +13,18 @@
 
 <script setup>
 
-import { ref } from 'vue';
+import { reactive } from 'vue';
 
 
-const counter = ref(0)
+/* const counter = ref(0)
 const counterTitle = ref('My Counter')
-const increment = () => counter.value++
-const decrement = () => counter.value--
+ */
+const counterData =  reactive({
+  counter: 0,
+  Title: 'My Counter title'
+})
+const increment = () => counterData.value++
+const decrement = () => counterData.value--
 
 </script>
 
