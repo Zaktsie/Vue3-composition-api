@@ -9,12 +9,19 @@
     <span class="counter">{{ counterData.counter}}</span>
     <button @click="increment" class="btn">+</button>
   </div>
+  <p>This counter is {{oddorEven}}</p>
+
+  <div class="edit">
+    <h4>edit counter tilte</h4>
+    <input v-model="counterData.Title" type="text">
+  </div>
+
 </div>
 </template>
 
 <script setup>
 
-import { reactive } from 'vue';
+import { reactive,computed } from 'vue';
 
 const appTitle = 'Vue 3 Composition API counter app'
 
@@ -22,60 +29,18 @@ const appTitle = 'Vue 3 Composition API counter app'
 const counterTitle = ref('My Counter')
  */
 const counterData =  reactive({
-  counter: 0,
+  counter: 10,
   Title: 'My Counter title'
 })
+
+const oddorEven  = computed(() => {
+  return counterData.counter % 2 === 0 ? 'even' : 'odd'
+})
+
 const increment = () => counterData.value++
 const decrement = () => counterData.value--
 
 </script>
-
-
-<!-- 
-Composition API example
-<script>
-import {ref } from 'vue';
-export default { 
-  setup() {
-    const counter = ref(20)
- 
- 
- return {
-  counter,
-  increment() {
-    counter.value++
-  },
-  decrement() {
-    counter.value--
-  },
- }
-  }
-}
-
-</script> -->
-
-<!-- options API example  -->
-
-<!-- <script>
-export default {
- data ()  {
-  return {
-  counter : 0
- } 
-},
-methods: {
-  increment() {
-    this.counter++
-  },
-  decrement() {
-    this.counter--
-  },
-  
-},
-}
-
-  </script> -->
-
 
 <style>
 .home {
@@ -86,6 +51,8 @@ methods: {
   font-size: 2rem;
   padding: 0 1rem;
 }
-
+.edit {
+  margin-top: 60px;
+}
 
 </style>
