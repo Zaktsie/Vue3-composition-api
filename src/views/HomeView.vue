@@ -5,9 +5,9 @@
   <div>
     <h2>{{ appTitle }}</h2>
     <h3>{{ counterData.Title }} :</h3>
-    <button @click="decrement"  class="btn">-</button>
+    <button @click="decrementComuter(2)"  class="btn">-</button>
     <span class="counter">{{ counterData.counter}}</span>
-    <button @click="increment" class="btn">+</button>
+    <button @click="incrementCounter(3)" class="btn">+</button>
   </div>
   <p>This counter is {{oddorEven}}</p>
 
@@ -29,7 +29,7 @@ const appTitle = 'Vue 3 Composition API counter app'
 const counterTitle = ref('My Counter')
  */
 const counterData =  reactive({
-  counter: 10,
+  counter: 0,
   Title: 'My Counter title'
 })
 
@@ -37,9 +37,13 @@ const oddorEven  = computed(() => {
   return counterData.counter % 2 === 0 ? 'even' : 'odd'
 })
 
-const increment = () => counterData.value++
-const decrement = () => counterData.value--
-
+const incrementCounter =  amount  => { 
+  console.log('amount',amount);
+  counterData.counter++}
+const decrementComuter = amount => {
+  console.log('amount',amount);
+  counterData.counter--
+}
 </script>
 
 <style>
