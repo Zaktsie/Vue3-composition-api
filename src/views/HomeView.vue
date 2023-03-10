@@ -39,10 +39,10 @@ const oddorEven  = computed(() => {
 
 const incrementCounter =  amount  => { 
   console.log('amount',amount);
-  counterData.counter++}
+  counterData.counter += amount}
 const decrementComuter = amount => {
   console.log('amount',amount);
-  counterData.counter--
+  counterData.counter-= amount
 }
 </script>
 
