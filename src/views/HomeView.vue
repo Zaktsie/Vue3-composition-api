@@ -7,7 +7,7 @@
     <h3>{{ counterData.Title }} :</h3>
     <button @click="decrementComuter(2)"  class="btn">-</button>
     <span class="counter">{{ counterData.counter}}</span>
-    <button @click="incrementCounter(3)" class="btn">+</button>
+    <button @click="incrementCounter(2)" class="btn">+</button>
   </div>
   <p>This counter is {{oddorEven}}</p>
 
@@ -21,17 +21,22 @@
 
 <script setup>
 
-import { reactive,computed } from 'vue';
+import { reactive,computed, watch } from 'vue';
 
 const appTitle = 'Vue 3 Composition API counter app'
 
-/* const counter = ref(0)
-const counterTitle = ref('My Counter')
- */
+
 const counterData =  reactive({
   counter: 0,
   Title: 'My Counter title'
 })
+
+watch(() => counterData.counter,  (newCount) => {
+if (newCount === 10) {
+  alert('counter is 10')
+}
+  
+}) 
 
 const oddorEven  = computed(() => {
   return counterData.counter % 2 === 0 ? 'even' : 'odd'
