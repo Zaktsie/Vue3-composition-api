@@ -13,7 +13,7 @@
 
   <div class="edit">
     <h4>edit counter tilte</h4>
-    <input v-model="counterData.Title" type="text">
+    <input v-model="counterData.Title" type="text" v-autofocus>
   </div>
 
 </div>
@@ -21,7 +21,8 @@
 
 <script setup>
 
-import { reactive,computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue';
+import { reactive,computed, watch } from 'vue';
+import {vAutofocus} from '@/directives/vAutofocus.js'
 
 const appTitle = 'Vue 3 Composition API counter app'
 
@@ -48,13 +49,6 @@ const decrementComuter = amount => {
   counterData.counter-= amount
 }
 
-
-onBeforeUpdate(() => {
-  console.log('onBeforeUpdate')
-})
-onUpdated(() => {
-  console.log('onUpdated')
-})
 
 </script>
 
