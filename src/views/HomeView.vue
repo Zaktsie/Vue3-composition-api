@@ -21,7 +21,7 @@
 
 <script setup>
 
-import { reactive,computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
+import { reactive,computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue';
 
 const appTitle = 'Vue 3 Composition API counter app'
 
@@ -43,25 +43,17 @@ const oddorEven  = computed(() => {
 })
 
 const incrementCounter =  amount  => { 
-  console.log('amount',amount);
   counterData.counter += amount}
 const decrementComuter = amount => {
-  console.log('amount',amount);
   counterData.counter-= amount
 }
 
 
-onBeforeMount(() => {
-  console.log('before mount');
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate')
 })
-onMounted(() => {
-  console.log('mounted');
-})
-onBeforeUnmount(() => {
-  console.log('before unmount');
-})
-onUnmounted(() => {
-  console.log('unmounted');
+onUpdated(() => {
+  console.log('onUpdated')
 })
 
 </script>
