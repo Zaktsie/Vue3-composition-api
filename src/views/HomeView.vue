@@ -21,7 +21,7 @@
 
 <script setup>
 
-import { reactive,computed, watch } from 'vue';
+import { reactive,computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
 
 const appTitle = 'Vue 3 Composition API counter app'
 
@@ -49,6 +49,21 @@ const decrementComuter = amount => {
   console.log('amount',amount);
   counterData.counter-= amount
 }
+
+
+onBeforeMount(() => {
+  console.log('before mount');
+})
+onMounted(() => {
+  console.log('mounted');
+})
+onBeforeUnmount(() => {
+  console.log('before unmount');
+})
+onUnmounted(() => {
+  console.log('unmounted');
+})
+
 </script>
 
 <style>
