@@ -1,7 +1,7 @@
 <template>
   <div class="post-details">
   <h1>This is a post page</h1>
-  <p>Display the content of post with ID of {{ route.param.id}} here!</p>
+  <p>Display the content of post with ID of {{ $route.params.id}} here!</p>
   <div>
     <button @click="ShowPostID">Show Post ID</button>
   </div>
@@ -21,7 +21,7 @@ const router = useRouter()
 
 
 const ShowPostID =  () => {
-  console.log(route.params.id)
+  alert('the id of this post is: ' + route.params.id);
 }
 
 const GoHomeAfter3Seconds = () => {
