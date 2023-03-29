@@ -3,7 +3,7 @@
 <template>
 <div class="home">
   <div>
-    <h2>{{ appTitle }}</h2>
+    <h2 ref="appTitleRef">{{ appTitle }}</h2>
     <h3>{{ counterData.Title }} :</h3>
     <button @click="decrementComuter(2)"  class="btn">-</button>
     <span class="counter">{{ counterData.counter}}</span>
@@ -21,10 +21,11 @@
 
 <script setup>
 
-import { reactive,computed, watch } from 'vue';
+import { reactive,computed, watch, ref} from 'vue';
 import {vAutofocus} from '@/directives/vAutofocus.js'
 
 const appTitle = 'Vue 3 Composition API counter app'
+const appTitleRef  =  ref(null)
 
 
 const counterData =  reactive({
