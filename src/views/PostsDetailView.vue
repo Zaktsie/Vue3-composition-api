@@ -8,6 +8,9 @@
   <div>
     <button @click="GoHomeAfter3Seconds">Redirect to home after 3 seconds</button>
   </div>
+  <div>
+    <button @click="GoToFirstPost">Redirect to first post after 3 seconds</button>
+  </div>
   <p><RouterLink to="/posts">&lt; Back</RouterLink></p>
 </div>
 </template>
@@ -30,5 +33,15 @@ setTimeout(() => {
 }, 3000)
 
 }
+const GoToFirstPost = () => {
+  router.push({
+    name: 'postsDetail',
+    params: { 
+      id: 'id1'
+     }
+  })
+  }
+
+
 
 </script>
